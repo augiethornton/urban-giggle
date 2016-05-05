@@ -65,6 +65,7 @@ update assets:
 $ docker-compose up
 $ docker-compose exec web bundle install
 $ docker-compose exec web bundle exec rake db:migrate
+$ docker-compose exec web bundle exec rake db:migrate RAILS_ENV=test
 $ docker-compose exec web bundle exec rake canvas:compile_assets
 ```
 
