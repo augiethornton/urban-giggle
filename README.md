@@ -48,8 +48,11 @@ $ cp docker-compose/config/* config/
 Get your database set up:
 
 ```
-$ docker-compose run --rm web bundle exec rake db:create
-$ docker-compose run --rm web bundle exec rake db:initial_setup
+$ docker-compose start
+$ docker-compose exec web bundle install
+$ docker-compose exec web bundle exec rake db:create
+$ docker-compose exec web bundle exec rake db:initial_setup
+$ docker-compose stop
 ```
 
 
