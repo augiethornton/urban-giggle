@@ -100,3 +100,6 @@ the browser:
 ```
 $ open vnc://secret:secret@selenium.docker/
 ```
+
+##### Caveats
+
