@@ -52,6 +52,8 @@ $ docker-compose start
 $ docker-compose exec web bundle install
 $ docker-compose exec web bundle exec rake db:create
 $ docker-compose exec web bundle exec rake db:initial_setup
+$ docker-compose exec web bundle exec rake db:migrate RAILS_ENV=test
+$ docker-compose exec web bundle exec rake canvas:compile_assets
 $ docker-compose stop
 ```
 
@@ -61,18 +63,10 @@ $ docker-compose stop
 Normally you can just start everything with `docker-compose up`, and
 access Canvas at http://canvas.docker/.
 
-After pulling new code, you'll probably want to run migrations and
-update assets:
+After pulling new code, you'll probably want to bundle install, run migrations and
+update assets.
 
-```
-$ docker-compose up
-$ docker-compose exec web bundle install
-$ docker-compose exec web bundle exec rake db:migrate
-$ docker-compose exec web bundle exec rake db:migrate RAILS_ENV=test
-$ docker-compose exec web bundle exec rake canvas:compile_assets
-```
-
-Changes you're making are not showing up? See the Caveats section below.
+Changes you're making are not showing up?
 Ctrl-C your `docker-compose up` window and restart.
 
 
