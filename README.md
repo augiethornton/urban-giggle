@@ -45,15 +45,28 @@ the linked containers supplied by config. You can just copy them to
 $ cp docker-compose/config/* config/
 ```
 
-Get your database set up:
+Getting things set up:
 
 ```
+# start your services
 $ docker-compose start
+
+# install gems and dependencies
 $ docker-compose exec web bundle install
+
+# create db's defined in database.yml
 $ docker-compose exec web bundle exec rake db:create
+
+# seed and migrate your db
 $ docker-compose exec web bundle exec rake db:initial_setup
+
+# run migrations against your test db
 $ docker-compose exec web bundle exec rake db:migrate RAILS_ENV=test
+
+# compile Canvas assets
 $ docker-compose exec web bundle exec rake canvas:compile_assets
+
+# stop your services
 $ docker-compose stop
 ```
 
