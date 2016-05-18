@@ -61,7 +61,7 @@ $ docker-compose run --rm web bundle exec rake db:initial_setup
 $ docker-compose run --rm web bundle exec rake db:migrate RAILS_ENV=test
 
 # compile Canvas assets
-$ docker-compose run --web web bundle exec rake canvas:compile_assets
+$ docker-compose run --rm web bundle exec rake canvas:compile_assets
 
 # start your services
 $ docker-compose up
