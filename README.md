@@ -48,26 +48,23 @@ $ cp docker-compose/config/* config/
 Getting things set up:
 
 ```
-# start your services
-$ docker-compose start
-
 # install gems and dependencies
-$ docker-compose exec web bundle install
+$ docker-compose run --rm web bundle install
 
 # create db's defined in database.yml
-$ docker-compose exec web bundle exec rake db:create
+$ docker-compose run --rm web bundle exec rake db:create
 
 # seed and migrate your db
-$ docker-compose exec web bundle exec rake db:initial_setup
+$ docker-compose run --rm web bundle exec rake db:initial_setup
 
 # run migrations against your test db
-$ docker-compose exec web bundle exec rake db:migrate RAILS_ENV=test
+$ docker-compose run --rm web bundle exec rake db:migrate RAILS_ENV=test
 
 # compile Canvas assets
-$ docker-compose exec web bundle exec rake canvas:compile_assets
+$ docker-compose run --web web bundle exec rake canvas:compile_assets
 
-# stop your services
-$ docker-compose stop
+# start your services
+$ docker-compose up
 ```
 
 
