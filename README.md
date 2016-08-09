@@ -63,6 +63,10 @@ $ docker-compose run --rm web bundle exec rake db:migrate RAILS_ENV=test
 # compile Canvas assets
 $ docker-compose run --rm web bundle exec rake canvas:compile_assets
 
+## if compiling Canvas fails due to an issue involving a node module, run
+$ docker-compose run --rm web rm -rf node_modules gems/*/node_modules && npm cache clean && npm install
+## then rerun the command for compiling Canvas assets
+
 # start your services
 $ docker-compose up
 ```
